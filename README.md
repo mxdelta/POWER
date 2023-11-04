@@ -1,4 +1,7 @@
 # POWER
+
+https://powersploit.readthedocs.io/en/latest/Recon/Add-DomainGroupMember/
+
 Запустить повер виев
 
 . .\PowerView.ps1
