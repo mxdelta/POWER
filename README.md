@@ -18,6 +18,18 @@ $Cred = New-Object System.Management.Automation.PSCredential('streamio.htb\JDgod
 $SecPassword)
 
 # Кодирование скриптов POwerShell
+--Кодирование в base64
+
+  $Shell=Get-Content -raw ./Invoke-PowerShellIcmp.ps1
+  
+  $bytes2 = [System.Text.Encoding]::Unicode.GetBytes($Shell)
+
+  $Encoded2 | out-file icmp.ps1.b64
+
+--Декодирование обратно
+
+  $Decode =[System.Text.Encoding]::Unicode.GetString([System.Convert]::FromBase64String($Encoded2))
+  
 
 cat rev.ps1 |iconv -t UTF-16LE | base64 -w 0 (вывод)
 
