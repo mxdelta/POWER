@@ -121,5 +121,13 @@ fl
 
 Get-AppLockerPolicy -effective -xml 
 
+# Сменить пароль пользователя и установить новый
+
+Set-DomainObjectOwner -Identity Herman -OwnerIdentity nico
+Add-DomainObjectAcl -TargetIdentity Herman -PrincipalIdentity nico -Rights ResetPassword -Verbose
+
+$passwd = ConvertTo-SecureString 'Password123' -AsPlainText -Force
+Set-DomainUserPassword Herman -AccountPassword $passwd -Verbose
+
 
 
