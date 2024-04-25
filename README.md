@@ -14,6 +14,9 @@ Get-Host
 
 exit
 
+# запуск POWERSHELL В КАЛИ
+
+    sudo pwsh Invoke-Stealth.ps1
 
 # POWER
 
