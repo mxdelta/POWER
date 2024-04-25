@@ -1,6 +1,7 @@
 # Обход блокировка скрипта
 
 Set-ExecutionPolicy Bypass -Scope CurrentUser -Force
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass 
 
 # POWER
 
