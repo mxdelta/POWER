@@ -130,6 +130,8 @@ Invoke-AllChecks
 
 invoke-ServiceAbuse -Name 'UsoSvc' ---- злоупотребление службой (запуск и изменение)
 
+Restart-service 'UsoSVC'
+
 # Запуск процесса от имени другого пользователя (администратора)
 
 $passwd = ConvertTo-SecureString 'Welcome1!' -AsPlainText -Force
