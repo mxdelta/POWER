@@ -1,3 +1,10 @@
+# Переход на другой компутер используя WSMAN (POwershell)
+
+$pass = ConvertTo-SecureString "W3_4R3_th3_f0rce." -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential("acute\imonks", $pass)
+
+invoke-command -ComputerName ATSSERVER -Credential $cred -ConfigurationName dc_manage -ScriptBlock {Get-command}
+
 # Обход блокировка скрипта
 
 Set-ExecutionPolicy Bypass -Scope CurrentUser -Force
