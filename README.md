@@ -195,6 +195,11 @@ fl
 
 Get-AppLockerPolicy -effective -xml 
 
+# Правила брандмауэра 
+
+powershell Get-NetFirewallRule -PolicyStore ActiveStore
+
+
 # Сменить пароль пользователя и установить новый
 
 Set-DomainObjectOwner -Identity Herman -OwnerIdentity nico
