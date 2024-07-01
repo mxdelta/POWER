@@ -1,3 +1,7 @@
+# Получить имя пользователя зная его SID
+
+wmic useraccount where sid='S-1-5-21-3783586571-2109290616-3725730865-2663' get name, fullname
+
 # Читать файл
 
 get-content "file"
