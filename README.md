@@ -1,3 +1,7 @@
+# Выводит информацию о пользователе!!!!!!! (Если аккаунт оператор юзер)
+
+Get-ADReplAccount -samaccountname Administrator -server windcorp.htb
+
 # Получить имя пользователя зная его SID
 
 wmic useraccount where sid='S-1-5-21-3783586571-2109290616-3725730865-2663' get name, fullname
