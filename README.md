@@ -1,3 +1,9 @@
+#
+
+powershell -NoP -NonI -W Hidden -Exec Bypass -Command "[EncodedCommand]"
+
+-W Hidden - спрятать окно
+
 # Выводит информацию о пользователе!!!!!!! (Если аккаунт оператор юзер)
 
 Get-ADReplAccount -samaccountname Administrator -server windcorp.htb
