@@ -1,3 +1,7 @@
+# Поиск пароей в файлах
+
+        gci -path . -recurse -ea SilentlyContinue -Include *.ini,*.yml,*.ps1,*cfg | select-string pass
+
 # Обход ограничений powershell (Легкий)
 
 powershell -NoP -NonI -W Hidden -Exec Bypass -Command "[EncodedCommand]"
