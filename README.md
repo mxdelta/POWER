@@ -1,3 +1,7 @@
+# Спосок пользователей 
+
+        get-aduser -filter * | select samaccountname
+
 # Поиск пароей в файлах
 
         gci -path . -recurse -ea SilentlyContinue -Include *.ini,*.yml,*.ps1,*cfg | select-string pass
