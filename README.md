@@ -12,12 +12,12 @@ type $env:APPDATA\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.tx
 
 # Обход ограничений powershell (Легкий)
 
-powershell -NoP -NonI -W Hidden -Exec Bypass -Command "[EncodedCommand]"
--NoP – (-NoProfile) – не загружает профиль Windows PowerShell.)
-–NonI - (-неинтерактивный) – не предоставляет пользователю интерактивное приглашение.
--W Hidden (-WindowStyle) – устанавливает обычный, свернутый, развернутый или скрытый стиль окна.
--Exec Bypass (-ExecutionPolicy) – устанавливает политику выполнения по умолчанию для текущего сеанса и сохраняет ее в переменной среды $env: PSExecutionPolicyPreference . Этот параметр не изменяет политику выполнения Windows PowerShell, установленную в реестре.
--Enc (-EncodedCommand) – принимает строковую версию команды в кодировке base-64. Используйте этот параметр для отправки команд в Windows PowerShell, для которых требуются сложные кавычки или фигурные скобки.
+        powershell -NoP -NonI -W Hidden -Exec Bypass -Command "[EncodedCommand]"
+        -NoP – (-NoProfile) – не загружает профиль Windows PowerShell.)
+        –NonI - (-неинтерактивный) – не предоставляет пользователю интерактивное приглашение.
+        -W Hidden (-WindowStyle) – устанавливает обычный, свернутый, развернутый или скрытый стиль окна.
+        -Exec Bypass (-ExecutionPolicy) – устанавливает политику выполнения по умолчанию для текущего сеанса и сохраняет ее в переменной среды $env: PSExecutionPolicyPreference . Этот параметр не изменяет политику выполнения Windows PowerShell, установленную в реестре.
+        -Enc (-EncodedCommand) – принимает строковую версию команды в кодировке base-64. Используйте этот параметр для отправки команд в Windows PowerShell, для которых требуются сложные кавычки или фигурные скобки.
 
 # Выводит информацию о пользователе!!!!!!! (Если аккаунт оператор юзер)
 
